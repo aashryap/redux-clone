@@ -1,10 +1,11 @@
 import Store from "./dedux";
-import countReducer from "./reducers/counter";
+// import countReducer from "./reducers/counter";
+import counterNew from "./reducers/counter-new";
 
 let store = new Store();
 
-store.createReducer({
-    counter: countReducer
+store.combineReducers({
+    counter: counterNew
 });
 
 export default store;

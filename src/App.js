@@ -1,23 +1,17 @@
 import './App.css';
 import { useDispatch, useSelector } from './react-dedux';
+import { increment, decrement } from './reducers/counter-new';
 
 function App() {
   const dispatch = useDispatch();
   const count = useSelector((state) => {
     return state.counter.count
   });
-  console.log({count})
-  const increment = () => {
-    dispatch({type: "increment"})
-  }
-  const decrement = () => {
-    dispatch({type: "decrement"})
-  }
   return (
     <div className="App">
-      <button onClick={increment}>INCREMENT</button>
+      <button onClick={() => dispatch(increment())}>INCREMENT</button>
       <div>COUNT: {count}</div>
-      <button onClick={decrement}>DECREMENT</button>
+      <button onClick={() => dispatch(decrement())}>DECREMENT</button>
     </div>
   );
 }
